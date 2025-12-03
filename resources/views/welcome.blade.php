@@ -15,9 +15,247 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        .navbar-custom {
-            background: #b30000; /* red */
-        }
+/* TOP RED BAR */
+/* TOP RED BAR */
+.topbar {
+    background: #d62828;
+    color: white;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.topbar-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* allows items to move on small screens */
+    gap: 6px;
+}
+
+.left span {
+    margin-right: 15px;
+}
+
+.login-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* 🔥 MAKE IT RESPONSIVE */
+@media (max-width: 768px) {
+    .topbar-container {
+        flex-direction: column;     /* stack items vertically */
+        text-align: center;
+    }
+
+    .left span {
+        display: block;             /* stack address + email */
+        margin-bottom: 5px;
+    }
+
+    .right {
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .topbar {
+        font-size: 12px;            /* smaller text for small phones */
+        padding: 6px 0;
+    }
+
+    .left span {
+        font-size: 12px;
+    }
+
+    .login-link {
+        font-size: 12px;
+    }
+}
+}
+
+/* MAIN NAV */
+.main-nav {
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo { height: 60px; }
+
+/* Ongoing Intakes */
+.ongoing {
+    position: relative;
+    z-index: 9999; /* ensures dropdown stays above slider */
+}
+
+.ongoing > a {
+    font-weight: 700;
+    color: black;
+    text-decoration: none;
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: none !important;          /* remove any lines */
+    box-shadow: none !important;
+}
+
+/* Simple Dropdown */
+.simple-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    width: 180px;
+    display: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    padding: 10px 0;
+    border-radius: 4px;
+    z-index: 99999; /* very high so slider cannot block it */
+}
+
+.simple-dropdown a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.simple-dropdown a:hover {
+    background: #d62828;
+    color: white;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .simple-dropdown {
+    display: block;
+}
+
+/* Mobile fix */
+@media (max-width: 900px) {
+    .ongoing {
+        width: 100%;
+    }
+
+    .ongoing > a {
+        padding: 12px 0;
+    }
+
+    .simple-dropdown {
+        position: static;   /* dropdown stays inside mobile menu */
+        width: 100%;
+        box-shadow: none;
+        padding: 5px 0;
+    }
+
+    .simple-dropdown a {
+        padding: 12px 10px;
+        font-size: 14px;
+    }
+}
+
+/* SIMPLE DROPDOWN */
+.simple-dropdown {
+    position: absolute;
+    background: white;
+    width: 180px;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 10px 0;
+}
+
+.dropdown:hover .simple-dropdown {
+    display: block;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin-left: auto; /* pushes menu to the right */
+}
+
+.nav-menu li { position: relative; }
+.nav-menu a { font-weight: 600; color: black; text-decoration: none; padding: 20px 0; }
+
+/* MEGA MENU (Centered) */
+.mega-menu {
+    display: none;
+    background: white;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 999;
+}
+
+.mega-dropdown:hover .mega-menu {
+    display: block;
+}
+
+.mega-row { display: flex; justify-content: space-between; }
+.mega-column a { display: block; padding: 6px 0; color: #444; }
+.mega-column a:hover { color: #d62828; }
+
+/* MOBILE */
+.mobile-toggle {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+@media(max-width: 900px) {
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        padding: 15px;
+    }
+
+    .nav-menu.show { display: block; }
+
+    .mega-menu {
+        position: static;
+        transform: none;
+        box-shadow: none;
+        width: 100%;
+    }
+
+    .mega-row {
+        flex-direction: column;
+    }
+
+    .ongoing {
+        margin-left: auto;
+    }
+}
+
+
+
+
+
         .course-card img {
             height: 200px;
             object-fit: cover;
@@ -44,29 +282,104 @@
 <body>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-    <div class="container">
-        <a class="navbar-brand fw-bold text-white" href="#">IST University</a>
+<header>
 
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<!-- 🔴 TOP RED INFO BAR -->
+<div class="topbar">
+    <div class="topbar-container">
+        <div class="left">
+            <span><i class="fa fa-envelope"></i> info@isteducation.com</span>
+            <span><i class="fa fa-map-marker"></i> Westpoint Building, Mpaka Road, Westlands, Nairobi</span>
+        </div>
 
-        <div class="collapse navbar-collapse" id="nav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a href="#about" class="nav-link text-white">About</a></li>
-                <li class="nav-item"><a href="#courses" class="nav-link text-white">Courses</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link text-white">Contact</a></li>
-                <li class="nav-item"><a href="#register" class="nav-link btn btn-dark px-3 ms-3 text-white">Register</a></li>
-                <li class="nav-item">
-                    <a href="{{ route('login') }}" class="nav-link btn btn-dark px-3 ms-3 text-white">
-                         Login
-                    </a>
-                </li>
-            </ul>
+        <div class="right">
+            <a href="#" class="login-link"><i class="fa fa-user"></i> Login/Registration</a>
         </div>
     </div>
-</nav>
+</div>
+
+    <!-- 🔵 MAIN NAV -->
+    <nav class="main-nav">
+        <div class="nav-container">
+
+            <!-- LOGO -->
+            <img src="https://www.isteducation.com/ist-content/uploads/2022/02/cropped-IST-logo-01-2048x2048-1-2.png"
+                class="logo" alt="IST Logo">
+
+            <!-- Ongoing Intakes (next to logo) -->
+            <div class="ongoing dropdown">
+                <a href="#"><i class="fa fa-th"></i> ONGOING INTAKES</a>
+                <div class="simple-dropdown">
+                    <a href="#">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- Hamburger -->
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <i class="fa fa-bars"></i>
+            </div>
+
+            <!-- NAV MENU -->
+            <ul class="nav-menu" id="navMenu">
+
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT IST</a></li>
+
+                <!-- CENTERED MEGA MENU -->
+                <li class="dropdown mega-dropdown">
+                    <a href="#">COURSES</a>
+
+                    <div class="mega-menu">
+                        <div class="mega-row">
+
+                            <div class="mega-column">
+                                <a href="#">Advanced Excel</a>
+                                <a href="#">Graphic Design</a>
+                                <a href="#">Certificate Courses</a>
+                                <a href="#">Computer Programming</a>
+                                <a href="#">Diploma Courses</a>
+                                <a href="#">Short Courses</a>
+                                <a href="#">CompTIA</a>
+                            </div>
+
+                            <div class="mega-column">
+                                <a href="#">Cisco Networking</a>
+                                <a href="#">Oracle Solaris</a>
+                                <a href="#">MySQL Database</a>
+                                <a href="#">Oracle Database 19c</a>
+                                <a href="#">R12 Oracle E-Business Suite</a>
+                                <a href="#">Other Red Hat Courses</a>
+                                <a href="#">AWS</a>
+                            </div>
+
+                            <div class="mega-column">
+                                <a href="#">Other Oracle Courses</a>
+                                <a href="#">SUSE Linux Enterprise</a>
+                                <a href="#">Red Hat Openshift</a>
+                                <a href="#">Red Hat Ceph Storage</a>
+                                <a href="#">Oracle App Development</a>
+                                <a href="#">Red Hat OpenStack</a>
+                                <a href="#">Project Management</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </li>
+
+                <li><a href="#">CAREER OPPORTUNITIES</a></li>
+                <li><a href="#">CONTACT US</a></li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+</header>
+
+
+
+
 
 <!-- SLIDER -->
 <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
@@ -81,7 +394,7 @@
 
     <div class="carousel-inner">
 
-     @php
+    @php
 $slides = [
     [
         "img"   => "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80",
@@ -143,8 +456,8 @@ $slides = [
     /* Light blue background */
     .about-section {
         background: #e8f1f5;   /* exact IST light blue shade */
-         padding: 80px 0;  /* Increase space top + bottom */
-         margin-top: 80px; /* Extra spacing from slider/banner */
+        padding: 80px 0;  /* Increase space top + bottom */
+        margin-top: 80px; /* Extra spacing from slider/banner */
     }
 
     /* Title style */
@@ -275,8 +588,8 @@ $slides = [
             <!-- Left Image -->
             <div class="col-md-6 mb-4 mb-md-0 fade-in-left">
                 <img src="https://www.isteducation.com/ist-content/uploads/2024/11/131734-768x512.jpg"
-                     class="img-fluid shadow-sm"
-                     style="border-radius:8px;">
+                    class="img-fluid shadow-sm"
+                    style="border-radius:8px;">
             </div>
 
             <!-- Right Text -->
@@ -306,10 +619,10 @@ $slides = [
 
     </div>
 </section>
- 
+
 
 <!-----Certificate and Diploma Courses------>
-  <style>
+<style>
 .courses-section {
     padding: 60px 0;
     background: #ffffff;
@@ -414,7 +727,7 @@ $slides = [
 
                 <p class="course-text">
                     00D 00H 00M 00S Duration 2 Months <br>
-                   00D 00H 00M 00S Duration 2 Months Prerequisites No Requirements Topics Standard ICDL Course  <br>
+                00D 00H 00M 00S Duration 2 Months Prerequisites No Requirements Topics Standard ICDL Course  <br>
                     Customized ICDL Course for Workforce(You can choose from any…
                 </p>
 
@@ -657,7 +970,7 @@ $slides = [
                 <h3 class="course-title">Certified Ethical Hacker (CEH)</h3>
 
                 <p class="course-text">
-                  Course Overview This course will immerse you into <br> a “Hacker Mindset” in order to teach you how to think like
+                Course Overview This course will immerse you into <br> a “Hacker Mindset” in order to teach you how to think like
                 </p>
 
                 <a href="#" class="arrow-btn">&#8594;</a>
@@ -779,7 +1092,7 @@ $slides = [
                             <div class="testimonial-stars">★★★★★</div>
                             <p class="mt-2">{{ $t[2] }}</p>
                             <img src="https://cdn.iconscout.com/icon/free/png-256/free-google-logo-icon-svg-download-png-93413.png"
-                                 width="26" class="position-absolute" style="right: 15px; bottom: 15px;">
+                                width="26" class="position-absolute" style="right: 15px; bottom: 15px;">
                         </div>
                         <div class="text-center mt-4">
                             <img src="https://{{ $t[1] }}" class="rounded-circle mb-2" width="60">
@@ -811,7 +1124,7 @@ $slides = [
                             <div class="testimonial-stars">★★★★★</div>
                             <p class="mt-2">{{ $t[2] }}</p>
                             <img src="https://cdn.iconscout.com/icon/free/png-256/free-google-logo-icon-svg-download-png-93413.png"
-                                 width="26" class="position-absolute" style="right: 15px; bottom: 15px;">
+                                width="26" class="position-absolute" style="right: 15px; bottom: 15px;">
                         </div>
                         <div class="text-center mt-4">
                             <img src="https://{{ $t[1] }}" class="rounded-circle mb-2" width="60">
@@ -843,7 +1156,7 @@ $slides = [
                             <div class="testimonial-stars">★★★★★</div>
                             <p class="mt-2">{{ $t[2] }}</p>
                             <img src="https://cdn.iconscout.com/icon/free/png-256/free-google-logo-icon-svg-download-png-93413.png"
-                                 width="26" class="position-absolute" style="right: 15px; bottom: 15px;">
+                                width="26" class="position-absolute" style="right: 15px; bottom: 15px;">
                         </div>
                         <div class="text-center mt-4">
                             <img src="https://{{ $t[1] }}" class="rounded-circle mb-2" width="60">
@@ -901,7 +1214,7 @@ $slides = [
 
                         <div class="col-md-3">
                             <div class="p-4 bg-white d-flex align-items-center justify-content-center shadow-sm"
-                                 style="height:150px; border-radius:6px;">
+                                style="height:150px; border-radius:6px;">
                                 <img src="{{ $logo }}" class="img-fluid" style="max-height:80px;">
                             </div>
                         </div>
@@ -926,7 +1239,7 @@ $slides = [
 
                         <div class="col-md-3">
                             <div class="p-4 bg-white d-flex align-items-center justify-content-center shadow-sm"
-                                 style="height:150px; border-radius:6px;">
+                                style="height:150px; border-radius:6px;">
                                 <img src="{{ $logo }}" class="img-fluid" style="max-height:80px;">
                             </div>
                         </div>
@@ -951,7 +1264,7 @@ $slides = [
     </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER o-->
 
 <style>
 .site-footer {
@@ -1075,6 +1388,13 @@ $slides = [
 <script>
     AOS.init();
 </script>
+
+<script>
+function toggleMenu() {
+    document.getElementById("navMenu").classList.toggle("show");
+}
+</script>
+
 
 </body>
 </html>
