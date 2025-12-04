@@ -79,7 +79,6 @@
 
 /* MAIN NAV */
 .main-nav {
-    background: #f10909;
     color: white;
     border-bottom: 1px solid #ddd;
 }
@@ -265,65 +264,6 @@
 .ongoing a.active {
     color: #f10909 !important;
 }
-
-
-
- /* courses */
-        .course-card img {
-            height: 200px;
-            object-fit: cover;
-        }
-        /* Make slider full height like screenshot */
-#heroSlider .carousel-item {
-    height: 700px; /* adjust size here */
-    position: relative;
-}
-
-/* Ensure image fills perfectly */
-#heroSlider .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
-/* Center content like screenshot */
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    z-index: 2;
-    width: 80%;
-}
-
-/* Make title larger like screenshot */
-.hero-content h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-}
-
-/* Buttons styling */
-.hero-content .btn {
-    padding: 12px 28px;
-    font-size: 1.1rem;
-}
-
-/* Make arrows bigger and centered vertically */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    filter: invert(100%);
-    width: 40px;
-    height: 40px;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    z-index: 3;
-}
-
     </style>
 </head>
 <body>
@@ -429,6 +369,30 @@
 
 
 <!-- SLIDER -->
+<style>
+    /* courses */
+        .course-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .hero-overlay {
+            background: rgba(0,0,0,0.55);
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+        }
+        .hero-content {
+        position: absolute;
+        top: 40%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        width: 80%;
+       max-width: 700px;
+     } 
+
+</style>
 <div id="heroSlider" class="carousel slide" data-bs-ride="carousel">
 
     <div class="carousel-indicators">
@@ -1425,7 +1389,10 @@ $slides = [
     </div>
 </footer>
 
-
+  <!-- 🔥 Main Page Content Goes Here -->
+    <main>
+        @yield('content')
+    </main>
 
 <!-- JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
