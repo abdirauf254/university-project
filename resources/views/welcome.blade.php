@@ -79,9 +79,17 @@
 
 /* MAIN NAV */
 .main-nav {
-    background: white;
+    background: #f10909;
+    color: white;
     border-bottom: 1px solid #ddd;
 }
+
+.nav-menu a:hover,
+.nav-menu a:focus,
+.nav-menu a.active {
+    color: #f10909 !important;
+}
+
 
 .nav-container {
     width: 90%;
@@ -134,7 +142,7 @@
 }
 
 .simple-dropdown a:hover {
-    background: #d62828;
+  
     color: white;
 }
 
@@ -250,12 +258,17 @@
     .ongoing {
         margin-left: auto;
     }
+    
+}
+.ongoing a:hover,
+.ongoing a:focus,
+.ongoing a.active {
+    color: #f10909 !important;
 }
 
 
 
-
-
+ /* courses */
         .course-card img {
             height: 200px;
             object-fit: cover;
@@ -267,15 +280,15 @@
             width: 100%; height: 100%;
         }
         .hero-content {
-    position: absolute;
-    top: 40%;
-    left: 25%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
-    width: 80%;
-    max-width: 700px;
-}
+        position: absolute;
+        top: 40%;
+        left: 25%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        width: 80%;
+       max-width: 700px;
+     } 
 
     </style>
 </head>
