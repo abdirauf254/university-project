@@ -310,7 +310,7 @@
             <!-- NAV MENU -->
             <ul class="nav-menu" id="navMenu">
 
-                <li><a href="#">HOME</a></li>
+                <li><a href="/">HOME</a></li>
                 <li><a href="{{ route('about') }}">ABOUT IST</a></li>
 
                 <!-- CENTERED MEGA MENU -->
