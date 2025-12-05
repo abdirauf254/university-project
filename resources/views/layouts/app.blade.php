@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+         <title>@yield('title', 'IST University')</title>
+
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -27,10 +28,23 @@
                 </header>
             @endif
 
+        @auth
+           @include('layouts.navigation')   {{-- Dashboard navbar --}}
+       @endauth
+
+       @guest
+           @include('partials.navbar')      {{-- Public website navbar --}}
+       @endguest
+       
+            @include('partials.header')
+            @include('partials.slider')
+            @include('partials.footer')
             <!-- Page Content -->
             <main>
-                {{ $slot }}
-            </main>
+        @yield('content')
+    </main>
+
+
         </div>
     </body>
 </html>

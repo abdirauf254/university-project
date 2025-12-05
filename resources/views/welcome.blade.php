@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-/* TOP RED BAR */
+
 /* TOP RED BAR */
 .topbar {
     background: #d62828;
@@ -281,7 +281,7 @@
         </div>
 
         <div class="right">
-            <a href="#" class="login-link"><i class="fa fa-user"></i> Login/Registration</a>
+            <a href="{{ route('login') }}" class="login-link"><i class="fa fa-user"></i> Login/Registration</a>
         </div>
     </div>
 </div>
@@ -298,7 +298,7 @@
             <div class="ongoing dropdown">
                 <a href="#"><i class="fa fa-th"></i> ONGOING INTAKES</a>
                 <div class="simple-dropdown">
-                    <a href="#">Apply Now</a>
+                    <a href="{{ route('register') }}">Apply Now</a>
                 </div>
             </div>
 
@@ -311,7 +311,7 @@
             <ul class="nav-menu" id="navMenu">
 
                 <li><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT IST</a></li>
+                <li><a href="{{ route('about') }}">ABOUT IST</a></li>
 
                 <!-- CENTERED MEGA MENU -->
                 <li class="dropdown mega-dropdown">
@@ -355,8 +355,8 @@
 
                 </li>
 
-                <li><a href="#">CAREER OPPORTUNITIES</a></li>
-                <li><a href="#">CONTACT US</a></li>
+                <li><a href="{{ route('careers') }}">CAREER OPPORTUNITIES</a></li>
+                <li><a href="{{ route('contact') }}">CONTACT US</a></li>
 
             </ul>
 
@@ -364,9 +364,6 @@
     </nav>
 
 </header>
-
-
-
 
 
 <!-- SLIDER -->
