@@ -6,7 +6,7 @@
 <div class="container py-5">
     <div class="row align-items-center">
         <div class="col-md-6 mb-4">
-            <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRffTxTm3UZkuZt5l0UR979zPAbvEcd4epKWzt-RD6bOyy_GSfP" alt="About IST" class="img-fluid rounded shadow">
+            <img src="https://via.placeholder.com/600x400" alt="About IST" class="img-fluid rounded shadow">
         </div>
 
         <div class="col-md-6">

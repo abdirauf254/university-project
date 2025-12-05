@@ -39,11 +39,18 @@
                                    bg-white dark:bg-gray-800 
                                    hover:text-gray-700 dark:hover:text-gray-300 
                                    focus:outline-none transition ease-in-out duration-150">
-                            
-                            @auth
-                             <div>{{ Auth::user()->name }}</div>
-                            @endauth                         
 
+                            @auth
+                                <div class="font-medium text-base text-gray-800">
+                                    {{ Auth::user()->name }}
+                                </div>
+                            @endauth
+
+                            @guest
+                                <div class="font-medium text-base text-gray-800">
+                                    Guest
+                                </div>
+                            @endguest
 
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" 
@@ -59,12 +66,15 @@
 
                     <x-slot name="content">
 
-                        <!-- Profile -->
+                        <!-- Profile (only for logged-in users) -->
+                        @auth
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
+                        @endauth
 
                         <!-- Logout -->
+                        @auth
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
@@ -75,6 +85,7 @@
                             </x-dropdown-link>
 
                         </form>
+                        @endauth
 
                     </x-slot>
 
@@ -123,16 +134,26 @@
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
 
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800 dark:text-gray-200">
-                    {{ Auth::user()->name }}
-                </div>
-                <div class="font-medium text-sm text-gray-500">
-                    {{ Auth::user()->email }}
-                </div>
+
+                @auth
+                    <div class="font-medium text-base text-gray-800 dark:text-gray-200">
+                        {{ Auth::user()->name }}
+                    </div>
+                    <div class="font-medium text-sm text-gray-500">
+                        {{ Auth::user()->email }}
+                    </div>
+                @endauth
+
+                @guest
+                    <div class="font-medium text-base text-gray-800 dark:text-gray-200">
+                        Guest
+                    </div>
+                @endguest
             </div>
 
             <div class="mt-3 space-y-1">
 
+                @auth
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
                 </x-responsive-nav-link>
@@ -140,14 +161,20 @@
                 <!-- Logout -->
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-
                     <x-responsive-nav-link :href="route('logout')"
                         onclick="event.preventDefault();
                                  this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
-
                 </form>
+                @endauth
+
+                @guest
+                <x-responsive-nav-link :href="route('login')">
+                    {{ __('Login') }}
+                </x-responsive-nav-link>
+                @endguest
+
             </div>
         </div>
     </div>
