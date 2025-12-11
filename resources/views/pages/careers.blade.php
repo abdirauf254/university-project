@@ -408,4 +408,205 @@
     </div>
 </div>
 
+<!-- =============== Accordion Section part 3 =============== -->
+
+<style>
+    .custom-accordion .accordion-item {
+        border-bottom: 1px solid #e5e5e5;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+    }
+
+    .custom-accordion .accordion-button {
+        background: #fff;
+        font-weight: 600;
+        padding: 18px 20px;
+        font-size: 17px;
+    }
+
+    .custom-accordion .accordion-button:not(.collapsed) {
+        color: #d40000 !important;
+        border-left: 3px solid #d40000;
+        background-color: #fff;
+        box-shadow: none;
+    }
+
+    /* PLUS ICON */
+    .custom-accordion .accordion-button::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='black' class='bi bi-plus-lg' viewBox='0 0 16 16'%3E%3Cpath d='M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2'/%3E%3C/svg%3E");
+    }
+
+    /* MINUS ICON */
+    .custom-accordion .accordion-button:not(.collapsed)::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='red' class='bi bi-dash-lg' viewBox='0 0 16 16'%3E%3Cpath d='M2 7.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5'/%3E%3C/svg%3E");
+    }
+
+    .accordion-body {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+</style>
+
+<div class="container py-5">
+    <div class="row g-5">
+
+        <!-- LEFT -->
+        <div class="col-md-6">
+
+            <div class="accordion custom-accordion" id="careerAccordion">
+
+                <!-- 1.Cyber Security Trainer -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-1">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapse-1">
+                            Cyber Security Trainer
+                        </button>
+                    </h2>
+                    <div id="collapse-1" class="accordion-collapse collapse"
+                         data-bs-parent="#careerAccordion">
+                        <div class="accordion-body">
+                            The Institute of Software Technologies (IST) is the premier brand for IT-based professional
+career development through competency and solution-based training. 
+The Institute invites applications to fill the vacant position of Cyber Security Trainer.
+
+The Trainer will be a champion of creativity and innovation by imparting technical concepts
+to students using a diverse set of training material.
+                        </div>
+                    </div>
+                </div>   
+
+                <!-- 2. Reporting -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-3">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapse-3">
+                            Reporting
+                        </button>
+                    </h2>
+                    <div id="collapse-3" class="accordion-collapse collapse"
+                         data-bs-parent="#careerAccordion">
+                        <div class="accordion-body">
+                           The trainer shall report to the Head of Training.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Salary -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-4">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapse-4">
+                            Salary
+                        </button>
+                    </h2>
+                    <div id="collapse-4" class="accordion-collapse collapse"
+                         data-bs-parent="#careerAccordion">
+                        <div class="accordion-body">
+                            Ksh 50,000 Gross
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Duties and Responsibilities -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-5">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapse-5">
+                            Duties and Responsibilities
+                        </button>
+                    </h2>
+                    <div id="collapse-5" class="accordion-collapse collapse"
+                         data-bs-parent="#careerAccordion">
+                        <div class="accordion-body">
+                           • Plan, Prepare and      deliver courses/training according to the training plan.
+• Provide individual and/or group instruction and training to students, faculty, and/or
+staff on computer technologies.
+• Conduct trainings both at IST campus and at offsite as per the schedule.
+• Research and Design the training material as per the course outline discussed with
+the Training head, prepare a complete teaching plan with the Training head.
+• Provide technical support for research and development initiatives and for the
+implementation of new technologies
+• Ensure that the course material is up to date.
+• Write structured programs, as appropriate, using technologically current
+programming languages to support IST Systems.
+• Develop testing and evaluation procedures.
+• Support classroom culture and relationship building with students
+• Prepare Exam Content and evaluate Students answer sheets
+• Assist other instructors with lab supervision and student monitoring
+• Resolve any query that the student may have during the exam.
+• Prepare a detailed report of the students training for industrial support i.e their
+strength and weakness of the subject and a report on placement for every student
+and report to the Training Head.
+• Make daily entry into the attendance sheets.
+• Maintain a proper class discipline and decorum.
+• Maintain a broad knowledge of state-of-the-art technology, equipment, and/or
+systems; participates in professional and personal development activities as
+appropriate.
+• Any other task assigned by the management as is within the scope of duty.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Skills -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-6">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapse-6">
+                            Skills & Qualifications
+                        </button>
+                    </h2>
+                    <div id="collapse-6" class="accordion-collapse collapse"
+                         data-bs-parent="#careerAccordion">
+                        <div class="accordion-body">
+                            Bachelor’s degree/Higher diploma in Computer/IT related field 
+1+ years’ work experience  
+Any cyber security course
+TVET accredited Trainer
+
+                            <strong>Other Competencies:</strong><br>
+                         • Establishes harmonious working relationships with team members
+
+• Displays a positive attitude
+
+• Demonstrates flexibility in day to day work
+
+• Aptitude to learn and grow
+
+• Problem solver
+
+• Ability to grow and mentor others
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. How to Apply -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading-7">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapse-7">
+                            How to Apply
+                        </button>
+                    </h2>
+                    <div id="collapse-7" class="accordion-collapse collapse"
+                         data-bs-parent="#careerAccordion">
+                        <div class="accordion-body">
+                            Send your CV to: hr@stl-horizon.com:
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div class="col-md-6">
+            <img src="https://www.isteducation.com/ist-content/uploads/2025/08/cyber-security-trainer-768x768.png"
+                 class="img-fluid rounded shadow-sm w-100">
+        </div>
+
+    </div>
+</div>
+
 @endsection
